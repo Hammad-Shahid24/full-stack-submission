@@ -15,7 +15,7 @@ import {
   AlertDescription,
 } from "@chakra-ui/react";
 import { FaPlusSquare as AddIcon, FaEdit as EditIcon } from "react-icons/fa";
-import Note, { INote } from "@/models/Note"; // Import Note as the default export and INote as the type
+import { INote } from "@/models/Note"; // Import Note as the default export and INote as the type
 import styles from "./NotesPage.module.scss";
 
 export default function NotesPage() {
