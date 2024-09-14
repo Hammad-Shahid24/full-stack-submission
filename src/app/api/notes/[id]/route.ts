@@ -1,63 +1,62 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import Note from "@/models/Note";
 import { dbConnect } from "@/lib/connection";
-import { NextResponse } from "next/server";
-import { NextRequest } from "next/server";
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
 ) {
-  await dbConnect();
-  try {
-    const noteFound = await Note.findById(params.id);
+  const { id } = req.query;
 
-    if (!noteFound) {
-      return NextResponse.json({ message: "Note not found" }, { status: 404 });
+  if (req.method === "GET") {
+    try {
+      await dbConnect();
+      const note = await Note.findById(id);
+      if (!note) {
+        return res.status(404).json({ message: "Note not found" });
+      }
+      return res.status(200).json(note);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        return res.status(500).json({ message: error.message });
+      }
+      return res.status(500).json({ message: "An unknown error occurred" });
     }
-
-    return NextResponse.json(noteFound);
-  } catch (error: any) {
-    return NextResponse.json({ message: error.message }, { status: 400 });
-  }
-}
-
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const body = await request.json();
-  await dbConnect();
-
-  try {
-    const noteUpdated = await Note.findByIdAndUpdate(params.id, body, {
-      new: true,
-    });
-
-    if (!noteUpdated) {
-      return NextResponse.json({ message: "Note not found" }, { status: 404 });
+  } else if (req.method === "PUT") {
+    try {
+      await dbConnect();
+      const { title, content } = req.body;
+      const updatedNote = await Note.findByIdAndUpdate(
+        id,
+        { title, content },
+        { new: true }
+      );
+      if (!updatedNote) {
+        return res.status(404).json({ message: "Note not found" });
+      }
+      return res.status(200).json(updatedNote);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        return res.status(500).json({ message: error.message });
+      }
+      return res.status(500).json({ message: "An unknown error occurred" });
     }
-
-    return NextResponse.json(noteUpdated);
-  } catch (error: any) {
-    return NextResponse.json({ message: error.message }, { status: 400 });
-  }
-}
-
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  await dbConnect();
-
-  try {
-    const noteDeleted = await Note.findByIdAndDelete(params.id);
-
-    if (!noteDeleted) {
-      return NextResponse.json({ message: "Note not found" }, { status: 404 });
+  } else if (req.method === "DELETE") {
+    try {
+      await dbConnect();
+      const deletedNote = await Note.findByIdAndDelete(id);
+      if (!deletedNote) {
+        return res.status(404).json({ message: "Note not found" });
+      }
+      return res.status(204).end();
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        return res.status(500).json({ message: error.message });
+      }
+      return res.status(500).json({ message: "An unknown error occurred" });
     }
-
-    return NextResponse.json(noteDeleted);
-  } catch (error: any) {
-    return NextResponse.json({ message: error.message }, { status: 400 });
+  } else {
+    res.setHeader("Allow", ["GET", "PUT", "DELETE"]);
+    return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
