@@ -1,73 +1,63 @@
-import { NextRequest, NextResponse } from "next/server";
 import Note from "@/models/Note";
 import { dbConnect } from "@/lib/connection";
+import { NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
-export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
-  const id = searchParams.get("id");
+interface Params {
+  params: {
+    id: string;
+  };
+}
 
+export async function GET(request: NextRequest, { params }: Params) {
+  await dbConnect();
   try {
-    await dbConnect();
-    const note = await Note.findById(id);
-    if (!note) {
+    const noteFound = await Note.findById(params.id);
+    if (!noteFound) {
       return NextResponse.json({ message: "Note not found" }, { status: 404 });
     }
-    return NextResponse.json(note);
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      return NextResponse.json({ message: error.message }, { status: 500 });
-    }
+    return NextResponse.json(noteFound);
+  } catch (error) {
     return NextResponse.json(
-      { message: "An unknown error occurred" },
-      { status: 500 }
+      { message: (error as Error).message },
+      { status: 400 }
     );
   }
 }
 
-export async function PUT(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
-  const id = searchParams.get("id");
-  const { title, content } = await req.json();
+export async function PUT(request: NextRequest, { params }: Params) {
+  const body = await request.json();
+  await dbConnect();
 
   try {
-    await dbConnect();
-    const updatedNote = await Note.findByIdAndUpdate(
-      id,
-      { title, content },
-      { new: true }
-    );
-    if (!updatedNote) {
+    const noteUpdated = await Note.findByIdAndUpdate(params.id, body, {
+      new: true,
+    });
+    if (!noteUpdated) {
       return NextResponse.json({ message: "Note not found" }, { status: 404 });
     }
-    return NextResponse.json(updatedNote);
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      return NextResponse.json({ message: error.message }, { status: 500 });
-    }
+    return NextResponse.json(noteUpdated);
+  } catch (error) {
     return NextResponse.json(
-      { message: "An unknown error occurred" },
-      { status: 500 }
+      { message: (error as Error).message },
+      { status: 400 }
     );
   }
 }
 
-export async function DELETE(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
-  const id = searchParams.get("id");
+export async function DELETE(request: NextRequest, { params }: Params) {
+  await dbConnect();
+
   try {
-    await dbConnect();
-    const deletedNote = await Note.findByIdAndDelete(id);
-    if (!deletedNote) {
+    const noteDeleted = await Note.findByIdAndDelete(params.id);
+    if (!noteDeleted) {
       return NextResponse.json({ message: "Note not found" }, { status: 404 });
     }
-    return NextResponse.json(null, { status: 204 });
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      return NextResponse.json({ message: error.message }, { status: 500 });
-    }
+    return NextResponse.json(noteDeleted);
+  } catch (error) {
     return NextResponse.json(
-      { message: "An unknown error occurred" },
-      { status: 500 }
+      { message: (error as Error).message },
+      { status: 400 }
     );
   }
 }

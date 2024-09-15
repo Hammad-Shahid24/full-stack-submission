@@ -7,8 +7,10 @@ $transition-duration: 0.3s;
   height: 100vh;
   width: 100vw;
   background-color: #ecf0f1;
+
   @media (max-width: 768px) {
     flex-direction: column;
+    height: auto; /* Let the container height adjust for smaller screens */
   }
 }
 
@@ -19,6 +21,7 @@ $transition-duration: 0.3s;
   padding: 20px;
   background-color: #f9f9f9;
   border-right: 1px solid $border-color;
+
   @media (max-width: 768px) {
     border-right: none;
     border-bottom: 1px solid $border-color;
@@ -29,8 +32,13 @@ $transition-duration: 0.3s;
   flex: 2;
   padding: 20px;
   background-color: #fff;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 100vh; /* Constrain the height to the full viewport height */
+
   @media (max-width: 768px) {
     flex: 1;
+    overflow-y: visible; /* Remove vertical scroll for smaller screens */
+    max-height: none; /* Let the notes list expand fully */
   }
 }
 
@@ -46,6 +54,7 @@ $transition-duration: 0.3s;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: background-color $transition-duration,
     transform $transition-duration;
+
   &:hover {
     background-color: $hover-color;
     transform: scale(1.02);

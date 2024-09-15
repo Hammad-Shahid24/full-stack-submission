@@ -74,7 +74,8 @@ export default function NotesPage() {
       });
 
       if (!res.ok) {
-        throw new Error("Failed to add note");
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Failed to add note");
       }
 
       const newNote: INote = await res.json();
@@ -109,7 +110,8 @@ export default function NotesPage() {
       });
 
       if (!res.ok) {
-        throw new Error("Failed to update note");
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Failed to update note");
       }
 
       const updatedNote: INote = await res.json();
@@ -141,7 +143,8 @@ export default function NotesPage() {
       const res = await fetch(`/api/notes/${id}`, { method: "DELETE" });
 
       if (!res.ok) {
-        throw new Error("Failed to delete note");
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Failed to delete note");
       }
 
       setNotes(notes.filter((note) => note._id !== id));

@@ -31,7 +31,7 @@ export default function HomePage() {
         <div
           className={`${styles.box} ${
             hoveredSection === "notes" ? styles.notesHover : ""
-          }`}
+          } ${styles.notes}`}
           onMouseEnter={() => handleMouseEnter("notes")}
           onMouseLeave={handleMouseLeave}
         >
@@ -42,7 +42,7 @@ export default function HomePage() {
         <div
           className={`${styles.box} ${
             hoveredSection === "figma" ? styles.figmaHover : ""
-          }`}
+          } ${styles.figma}`}
           onMouseEnter={() => handleMouseEnter("figma")}
           onMouseLeave={handleMouseLeave}
         >

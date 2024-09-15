@@ -10,10 +10,17 @@ $hover-secondary-color: #5bc2a0; // Darker green for hover
 
 .container {
   display: flex;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: $background-color;
   overflow: hidden; /* Prevent scrollbars from appearing */
+  flex-direction: column; /* Default to column for mobile */
+
+  @media (min-width: 768px) {
+    flex-direction: row; /* Change to row for larger screens */
+    height: 100vh;
+    width: 100vw;
+  }
 }
 
 .box {
@@ -21,9 +28,8 @@ $hover-secondary-color: #5bc2a0; // Darker green for hover
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $primary-color;
-  min-width: 50vw;
-  min-height: 100vh;
+  min-width: 100vw; /* Default to full width for mobile */
+  min-height: 50vh; /* Default to half height for mobile */
   color: $text-color;
   text-decoration: none;
   transition: background-color $transition-duration,
@@ -31,31 +37,71 @@ $hover-secondary-color: #5bc2a0; // Darker green for hover
   cursor: pointer;
   transform-origin: center; /* Ensure scaling happens from the center */
 
-  &:hover {
-    background-color: $hover-color;
-    transform: scale(1.05);
+  @media (min-width: 768px) {
+    min-width: 50vw; /* Change to half width for larger screens */
+    min-height: 100vh; /* Change to full height for larger screens */
+
+    &:hover {
+      background-color: $hover-color;
+      transform: scale(1.05);
+    }
+  }
+}
+
+.notes {
+  background-color: $hover-color;
+
+  @media (min-width: 768px) {
+    background-color: $primary-color; /* Change to darker blue for larger screens */
+  }
+}
+
+.figma {
+  background-color: $hover-secondary-color;
+
+  @media (min-width: 768px) {
+    background-color: $primary-color; /* Change to darker green for larger screens */
   }
 }
 
 .box h1 {
-  font-size: 6rem;
-  width: 70%; /* Adjust the width as needed */
+  font-size: 2.5rem; /* Smaller font size for mobile */
+  width: 90%; /* Adjust the width as needed */
   text-align: center;
   word-break: break-word; /* Ensure the text breaks into multiple lines */
+
+  @media (min-width: 600px) and (max-width: 767px) {
+    font-size: 2.5rem; /* Smaller font size for tablet screens */
+    width: 80%; /* Adjust width for tablet screens */
+  }
+
+  @media (min-width: 768px) {
+    font-size: 3rem; /* Larger font size for larger screens */
+    width: 70%; /* Adjust the width as needed */
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 5rem; /* Larger font size for larger screens */
+    width: 70%; /* Adjust the width as needed */
+  }
 }
 
 .notesHover {
   background-color: $primary-color;
 
-  &:hover {
-    background-color: $hover-color;
+  @media (min-width: 768px) {
+    &:hover {
+      background-color: $hover-color;
+    }
   }
 }
 
 .figmaHover {
   background-color: $secondary-color;
 
-  &:hover {
-    background-color: $hover-secondary-color;
+  @media (min-width: 768px) {
+    &:hover {
+      background-color: $hover-secondary-color;
+    }
   }
 }
