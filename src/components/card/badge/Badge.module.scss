@@ -1,0 +1,21 @@
+.badge {
+  border-radius: 4px; // equivalent to borderRadius="md"
+  padding: 4px 8px 4px 8px; // equivalent to padding={2}
+  text-align: center;
+  background-color: #dbe2f0;
+  color: #5876b7;
+  width: fit-content;
+  margin-bottom: 8px;
+}
+
+.sm {
+  font-size: 0.875rem; // equivalent to fontSize="sm"
+}
+
+.md {
+  font-size: 1rem; // equivalent to fontSize="md"
+}
+
+.lg {
+  font-size: 1.125rem; // equivalent to fontSize="lg"
+}

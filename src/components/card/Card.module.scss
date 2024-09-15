@@ -1,0 +1,52 @@
+.card {
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+
+  &:hover {
+    // background-color: #f0f4f8;
+    // transform: scale(1.02);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  span {
+    padding-top: 3px;
+  }
+
+  svg {
+    color: gray;
+    cursor: pointer;
+  }
+}
+
+.stepper {
+  background-color: aqua;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+
+  .footerHeading {
+    align-self: flex-end;
+    padding-bottom: 4px;
+  }
+}

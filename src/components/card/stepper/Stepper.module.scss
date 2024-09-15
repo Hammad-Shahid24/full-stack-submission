@@ -1,0 +1,38 @@
+.stepperContainer {
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: #dadad7;
+}
+
+.circleActive {
+  background-color: #5876b7;
+}
+
+.line {
+  height: 2px;
+  width: 78px;
+  background-color: #dadad7;
+}
+
+.lineActive {
+  background-color: #5876b7;
+}
+
+.stepText {
+  font-size: 0.9rem;
+  margin-left: 16px;
+  color: #707066;
+}
