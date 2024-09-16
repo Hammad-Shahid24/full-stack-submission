@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Footer.module.scss"; // Import the SCSS file for styling
 import DocumentIcon from "../../../public/images/documentation.svg";
-import CalculateIcon from "../../../public/images/Calculate.svg";
+import CalculateIcon from "../../../public/images/calculate.svg";
 import Image from "next/image";
 
 const Footer: React.FC = () => {
