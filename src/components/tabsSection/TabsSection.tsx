@@ -20,7 +20,7 @@ const TabsSection: React.FC = () => {
           <Tab
             fontSize="1rem"
             fontWeight="400"
-            _hover={{ backgroundColor: "#f1f5f8" }} // Hover for inactive tab
+            _hover={{ backgroundColor: "#f8f8f8" }} // Hover for inactive tab
             _selected={{
               color: "#5876B7", // Corrected font color for selected tab
               fontWeight: "500", // Bold font weight for active tab
@@ -33,7 +33,7 @@ const TabsSection: React.FC = () => {
           <Tab
             fontSize="1rem"
             fontWeight="400"
-            _hover={{ backgroundColor: "#f1f5f8" }} // Hover for inactive tab
+            _hover={{ backgroundColor: "#f8f8f8" }} // Hover for inactive tab
             _selected={{
               color: "#5876B7", // Corrected font color for selected tab
               fontWeight: "500", // Bold font weight for active tab
@@ -46,7 +46,7 @@ const TabsSection: React.FC = () => {
           <Tab
             fontSize="1rem"
             fontWeight="400"
-            _hover={{ backgroundColor: "#f1f5f8" }} // Hover for inactive tab
+            _hover={{ backgroundColor: "#f8f8f8" }} // Hover for inactive tab
             _selected={{
               color: "#5876B7", // Corrected font color for selected tab
               fontWeight: "500", // Bold font weight for active tab
@@ -58,7 +58,7 @@ const TabsSection: React.FC = () => {
           </Tab>
           <Tab
             fontSize="1rem"
-            _hover={{ backgroundColor: "#f1f5f8" }} // Hover for inactive tab
+            _hover={{ backgroundColor: "#f8f8f8" }} // Hover for inactive tab
             _selected={{
               color: "#5876B7", // Corrected font color for selected tab
               fontWeight: "500", // Bold font weight for active tab

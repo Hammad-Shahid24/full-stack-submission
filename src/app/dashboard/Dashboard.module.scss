@@ -1,19 +1,23 @@
 // Variables
-$bg-color: #fff;
-$card-bg: #ffffff;
-$border-color: #ddd;
-$shadow-color: rgba(0, 0, 0, 0.1);
-$transition-duration: 0.3s;
+$side-nav-width: 250px;
 $side-nav-bg: #2d3748;
 $side-nav-text: #ffffff;
 $side-nav-hover-bg: #4a5568;
-$side-nav-width: 250px;
+$transition-duration: 0.3s;
+$bg-color: #f8f9fa;
+$card-bg: #ffffff;
+$shadow-color: rgba(0, 0, 0, 0.1);
+$border-color: #ddd;
 
+// Dashboard Container
 .dashboardContainer {
   display: flex;
-  height: 100vh;
+  height: 100vh; // Full height
+  overflow: hidden; // Prevent overflow from child elements
+  padding-bottom: 4rem;
 }
 
+// Side Navigation
 .sideNav {
   width: $side-nav-width;
   height: 100vh;
@@ -23,111 +27,99 @@ $side-nav-width: 250px;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-
-  .logo {
-    margin-bottom: 2rem;
-    h1 {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-  }
-
-  .nav {
-    width: 100%;
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-
-      li {
-        margin-bottom: 1rem;
-
-        .navLink {
-          color: $side-nav-text;
-          text-decoration: none;
-          font-size: 1rem;
-          display: block;
-          padding: 0.5rem 1rem;
-          border-radius: 0.25rem;
-          transition: background-color $transition-duration;
-
-          &:hover {
-            background-color: $side-nav-hover-bg;
-          }
-        }
-      }
-    }
-  }
 }
 
+// Main Content Area
 .mainContent {
+  flex: 1; // Takes up remaining width after the SideNav
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; // Scrollable content
+  background-color: $bg-color;
+  padding-right: 0.5rem; // Add padding to the right to prevent overflow
+
+  /* Hide scrollbar */
+  &::-webkit-scrollbar {
+    width: 0; /* For Chrome, Safari, and Opera */
+  }
+
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+// Inner Content Area for WelcomeSection, TabsSection, and Cards
+.dashboardInnerContent {
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  overflow-y: auto;
-}
+  overflow-y: auto; // Make inner content scrollable as well
 
-.dashboard {
-  background-color: $bg-color;
-  min-height: 100vh;
-  padding: 20px;
-
-  @media (max-width: 768px) {
-    padding: 10px;
-  }
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-
-  .title {
-    font-size: 24px;
-    font-weight: 600;
+  /* Hide scrollbar */
+  &::-webkit-scrollbar {
+    width: 0; /* For Chrome, Safari, and Opera */
   }
 
-  .addButton {
-    background-color: #3182ce;
-    color: #fff;
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+// Cards Container (Responsive grid layout for ProjectCards)
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); // Default to 1 column
+  gap: 20px; // Space between cards
+  padding-right: 1rem; // Add padding to the right to prevent overflow
+
+  // Small screens (default) - 1 column
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(1, 1fr); // Single column for medium devices
+  }
+
+  // Extra Large (XL) screens - 2 columns
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(3, 1fr); // Two columns for XL screens
+  }
+
+  // 2XL and larger screens - 3 columns
+  @media (min-width: 1536px) {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); // Three columns for 2XL screens and beyond
+  }
+
+  .card {
+    background-color: $card-bg;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px $shadow-color;
+    padding: 20px;
+    transition: background-color $transition-duration,
+      transform $transition-duration;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     &:hover {
-      background-color: #2b6cb0;
+      background-color: #f0f4f8;
+      transform: scale(1.02);
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
     }
   }
 }
 
-.cardsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-.card {
-  background-color: $card-bg;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px $shadow-color;
-  padding: 20px;
-  transition: background-color $transition-duration,
-    transform $transition-duration;
-  flex: 1;
-  min-width: 300px;
-
-  &:hover {
-    background-color: #f0f4f8;
-    transform: scale(1.02);
-  }
-
-  // Action buttons alignment
-  .actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 16px;
-  }
+// Footer (Position it at the bottom of the main content)
+.footer {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6c757d;
 }

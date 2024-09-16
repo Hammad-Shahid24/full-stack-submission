@@ -1,11 +1,12 @@
 .sideNav {
   height: 100vh;
+  width: 17.5rem;
   background-color: #f4f6fa; /* Light background color */
   color: #050504; /* Dark text color */
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 1rem 6rem 1rem;
   overflow: auto;
 
   /* Hide scrollbar for WebKit browsers */
@@ -80,7 +81,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.25rem 0.25rem 1rem 0.25rem;
+    padding: 0.5rem 0.25rem 1rem 0.25rem;
     background-color: #ebf0fa;
     border-radius: 8px;
     margin-top: 1.25rem;
@@ -211,6 +212,35 @@
       .launchpadButtonLeftStuff,
       .launchpadButtonChevron {
         color: #050504; /* Change color on hover */
+      }
+    }
+  }
+
+  .fixedLogoutSection {
+    position: fixed;
+    bottom: 0rem; /* Adjust as needed */
+    width: 17.2rem; /* Adjust for padding */
+    background-color: #f4f6fa; /* Match sidebar background */
+    padding: 0.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem; /* Space between buttons */
+
+    .fixedLogoutSectionButton {
+      width: 100%;
+      color: #707066; /* Text color */
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      text-align: left;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem; /* Space between icon and text */
+
+      &:hover {
+        background-color: #e2e8f0; /* Lighter background on hover */
       }
     }
   }

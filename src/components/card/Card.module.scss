@@ -49,4 +49,49 @@
     align-self: flex-end;
     padding-bottom: 4px;
   }
+
+  .arrowButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    background: #5876b7;
+    transition: all 0.3s ease-in-out;
+    position: relative; /* Needed for pseudo-element positioning */
+    overflow: hidden; /* Ensure the pseudo-element is contained within the button */
+
+    &:hover {
+      background: #334876;
+    }
+
+    &:active::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border: 1px solid #fff; /* Border color and width */
+      border-radius: 4px; /* Match the button's border-radius */
+      animation: borderShrink 0.3s forwards; /* Trigger the animation */
+    }
+
+    /* Define the animation */
+    @keyframes borderShrink {
+      0% {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+      100% {
+        top: 2px; /* Adjust as needed */
+        right: 2px; /* Adjust as needed */
+        bottom: 2px; /* Adjust as needed */
+        left: 2px; /* Adjust as needed */
+      }
+    }
+  }
 }

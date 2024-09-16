@@ -11,7 +11,7 @@ import { IoEllipsisVertical } from "react-icons/io5";
 import styles from "./Card.module.scss";
 import Stepper from "./stepper/Stepper";
 import Badge from "./badge/Badge";
-import Icon from "../../../public/images/card-arrow-btn.svg"; // Import the SVG as a URL
+import ArrowIcon from "../../../public/images/arrow.svg";
 import Image from "next/image";
 
 interface ProjectCardProps {
@@ -22,13 +22,7 @@ interface ProjectCardProps {
   onFollowUpClick: () => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
-  title,
-  status,
-  progress,
-  nextMilestone,
-  onFollowUpClick,
-}) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -79,7 +73,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {"Follow up with manager"}
         </Heading>
 
-        <Image src={Icon} alt="icon" />
+        <button className={styles.arrowButton}>
+          <Image src={ArrowIcon} alt="ArrowIcon" />
+        </button>
       </div>
     </Box>
   );

@@ -202,6 +202,17 @@ const SideNav: React.FC = () => {
       </div>
 
       <hr className={styles.divider} />
+
+      <div className={styles.fixedLogoutSection}>
+        <button className={`${styles.fixedLogoutSectionButton} `}>
+          <FaRegStar size={17} color="#707066" />
+          Account Settings
+        </button>
+        <button className={`${styles.fixedLogoutSectionButton}`}>
+          <FaRegStar size={17} color="#707066" />
+          Logout
+        </button>
+      </div>
     </div>
   );
 };
