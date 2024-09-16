@@ -11,22 +11,37 @@ const Footer: React.FC = () => {
         <button
           className={styles.footerButton}
           onClick={() => (window.location.href = "/documentation")}
+          aria-label="Explore Documentation"
         >
-          <Image className={styles.img} src={DocumentIcon} alt={"Doc icon"} />
+          <Image
+            className={styles.img}
+            src={DocumentIcon}
+            alt="Documentation icon"
+          />
           Explore Documentation
         </button>
         <button
           className={styles.footerButton}
           onClick={() => (window.location.href = "/cost-calculator")}
+          aria-label="Cost Calculator"
         >
-          <Image className={styles.img} src={CalculateIcon} alt={"Cal icon"} />
+          <Image
+            className={styles.img}
+            src={CalculateIcon}
+            alt="Cost Calculator icon"
+          />
           Cost Calculator
         </button>
         <button
           className={styles.footerButton}
           onClick={() => (window.location.href = "/billing-calculator")}
+          aria-label="Billing Calculator"
         >
-          <Image className={styles.img} src={CalculateIcon} alt={"Cal icon"} />
+          <Image
+            className={styles.img}
+            src={CalculateIcon}
+            alt="Billing Calculator icon"
+          />
           Billing Calculator
         </button>
       </div>

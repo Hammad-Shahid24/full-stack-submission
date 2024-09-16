@@ -22,7 +22,13 @@ interface ProjectCardProps {
   onFollowUpClick: () => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  title,
+  status,
+  progress,
+  nextMilestone,
+  onFollowUpClick,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -37,7 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title }) => {
     { title: "First", description: "Contact Info" },
     { title: "Second", description: "Date & Time" },
     { title: "Third", description: "Select Rooms" },
-    { title: "Forth", description: "Enter Email" },
+    { title: "Fourth", description: "Enter Email" },
   ];
 
   const { activeStep, setActiveStep } = useSteps({
@@ -51,7 +57,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title }) => {
 
   return (
     <Box
-      className={styles.card}
+      className={`${styles.card} ${isHovered ? styles.hovered : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -65,15 +71,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title }) => {
       </div>
       <Text color="gray.500">Web</Text>
       <Stepper steps={4} currentStep={3} />
-      <Badge size="sm">{"Ongoing"}</Badge>
-      <Badge size="sm">{"Next Milestone: Dec 5th"}</Badge>
+      <Badge size="sm">{status}</Badge>
+      <Badge size="sm">{"Next Milestone: " + nextMilestone}</Badge>
 
       <div className={styles.cardFooter}>
         <Heading size="sm" color={"#050504"} className={styles.footerHeading}>
           {"Follow up with manager"}
         </Heading>
 
-        <button className={styles.arrowButton}>
+        <button className={styles.arrowButton} onClick={onFollowUpClick}>
           <Image src={ArrowIcon} alt="ArrowIcon" />
         </button>
       </div>

@@ -73,7 +73,6 @@ $border-color: #ddd;
   gap: 20px; // Space between cards
   padding-right: 1rem; // Add padding to the right to prevent overflow
 
-  // Small screens (default) - 1 column
   @media (min-width: 768px) {
     grid-template-columns: repeat(1, 1fr); // Single column for medium devices
   }

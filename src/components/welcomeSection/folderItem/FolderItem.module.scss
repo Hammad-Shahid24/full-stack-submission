@@ -1,15 +1,16 @@
 .folderContainer {
   display: flex;
-  margin-top: 1rem; // equivalent to mt={4}
+  margin-top: 1rem;
 }
 
 .folder {
   display: flex;
+  align-items: center;
 
   .img {
     height: 40px;
     width: 40px;
-    margin-right: 0.5rem; // equivalent to mr={4}
+    margin-right: 0.5rem;
   }
 
   .count {
@@ -19,7 +20,7 @@
   }
 
   .label {
-    font-size: 0.75rem; // equivalent to 12px
+    font-size: 0.75rem;
     color: #707066;
   }
 }
