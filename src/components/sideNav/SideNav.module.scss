@@ -1,0 +1,238 @@
+.sideNav {
+  height: 100vh;
+  background-color: #f4f6fa; /* Light background color */
+  color: #050504; /* Dark text color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  overflow: auto;
+
+  /* Hide scrollbar for WebKit browsers */
+  &::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    height: 0; /* Remove scrollbar space */
+  }
+
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+  .logo {
+    margin-bottom: 2rem;
+    align-self: flex-start;
+  }
+
+  .avatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .nameEmailContainer {
+      gap: 0.75rem;
+      padding: 0 0.5rem;
+
+      h4 {
+        color: #050504;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      p {
+        color: #3c3c34;
+        text-overflow: ellipsis;
+        font-weight: 400;
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  .personalInvitedContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 2px;
+    margin-top: 1.5rem;
+    background-color: #fff;
+    border: 1px solid #dadad7;
+    border-radius: 6px;
+    padding: 4px;
+    width: 100%;
+
+    .personalInvitedButton {
+      color: #808076;
+      border-radius: 0.25rem;
+      padding: 0.5rem 2.15rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &.active {
+        background-color: #dbe2f0; /* Active background color */
+        color: #334876;
+      }
+    }
+  }
+
+  .coloredSideNavContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.25rem 0.25rem 1rem 0.25rem;
+    background-color: #ebf0fa;
+    border-radius: 8px;
+    margin-top: 1.25rem;
+  }
+
+  .starButtons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .starButton {
+      width: 100%;
+      background: none;
+      border: none;
+      color: #707066;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem; /* Space between icon and text */
+      font-size: 0.875rem;
+      font-weight: 500;
+
+      &:hover {
+        background-color: #f4f6fa; /* Lighter background on hover */
+      }
+
+      &.active {
+        background-color: #fff; /* Active background color */
+        color: #050504; /* Active text color */
+        font-weight: 500;
+      }
+    }
+  }
+
+  .workspacesContainer {
+    width: 100%;
+
+    .workspaceHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+
+      .leftWorkspaceStuff {
+        display: flex;
+        align-items: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #3c3c34;
+        letter-spacing: 0.5px;
+
+        .chevronIcon {
+          margin-right: 0.5rem;
+          font-size: 0.875rem;
+        }
+      }
+
+      .rightWorkspaceStuff {
+        font-size: 0.75rem;
+        background-color: #dadad7;
+        color: #3c3c34;
+        font-weight: 700;
+        padding: 0.25rem 0.5rem;
+        border-radius: 1rem;
+      }
+    }
+  }
+
+  .workspaceButtons {
+    width: 100%;
+
+    .workspaceButton {
+      width: 100%;
+      color: #707066; /* Dark text color */
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      display: flex;
+      justify-content: center; /* Center the text */
+      align-items: center;
+      font-size: 0.875rem;
+      font-weight: 500;
+      position: relative; /* Keep relative for chevron positioning */
+
+      .workspaceButtonChevron {
+        position: absolute;
+        right: 1rem; /* Keep the chevron aligned to the right */
+      }
+
+      &:hover {
+        color: #050504; /* Lighter background on hover */
+      }
+    }
+  }
+
+  .launchpadButton {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    cursor: pointer; /* Add cursor pointer for better UX */
+
+    .launchpadButtonLeftStuff {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #707066;
+      transition: color 0.3s ease; /* Add transition for smooth color change */
+    }
+
+    .launchpadButtonChevron {
+      color: #707066;
+      transition: color 0.3s ease; /* Add transition for smooth color change */
+    }
+
+    &:hover {
+      .launchpadButtonLeftStuff,
+      .launchpadButtonChevron {
+        color: #050504; /* Change color on hover */
+      }
+    }
+  }
+}
+
+.seeAll {
+  font-size: 0.875rem;
+  color: #5876b7;
+  font-weight: 500;
+  width: fit-content;
+  margin: auto;
+  padding-top: 1px;
+
+  &:hover {
+    color: #050504;
+    cursor: pointer;
+  }
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #d1d9e6; /* Divider color */
+  margin: 1rem 0; /* Spacing around the divider */
+}

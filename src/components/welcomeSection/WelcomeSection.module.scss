@@ -1,0 +1,20 @@
+.welcomeSection {
+  padding: 1rem; // Padding to the entire section
+}
+
+.heading {
+  font-size: 1.75rem; // Adjusted for medium size heading
+  font-weight: 700; // Optional: Add some emphasis on the heading
+}
+
+.summary {
+  margin-top: 0.25rem;
+  font-size: 1rem; // Adjust text size if needed
+  color: #707066; // Optional: Add a color for better readability
+}
+
+.folderItems {
+  display: flex;
+  gap: 4rem; // Adds space between folder items
+  margin-top: 1.5rem; // Pushes the folder items down a bit
+}

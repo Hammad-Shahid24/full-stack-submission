@@ -1,16 +1,16 @@
 .card {
   padding: 16px;
   background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s;
+  box-shadow: -0.5px -0.5px 4px rgba(0, 0, 0, 0.2); /* Shadow mostly at the top and left */
+  transition: all 0.3s ease-in-out;
   width: 100%;
   max-width: 400px;
   position: relative;
 
   &:hover {
-    // background-color: #f0f4f8;
-    // transform: scale(1.02);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.001);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1); /* Shadow switches to bottom and right */
+    cursor: pointer;
   }
 }
 

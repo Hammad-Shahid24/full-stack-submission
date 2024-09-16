@@ -1,0 +1,40 @@
+.footer {
+  //   background-color: #edf2f7; /* Equivalent to gray.200 in Chakra UI */
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  //   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footerContent {
+  display: flex;
+  justify-content: flex-start; /* Space out the buttons evenly */
+  align-items: center;
+  gap: 1rem; /* Space between buttons */
+}
+
+.footerButton {
+  background: none;
+  border: none;
+  color: #2d3748; /* Equivalent to gray.800 in Chakra UI */
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; /* Smooth transition on hover */
+  display: flex;
+  align-items: center; /* Align icon and text vertically */
+  gap: 0.5rem; /* Space between icon and text */
+  padding: 0.5rem 1rem; /* Padding for better click area */
+  border-radius: 0.25rem; /* Slightly rounded corners */
+  font-size: 1rem; /* Font size for the text */
+  font-weight: 700; /* Font weight for the text */
+
+  &:hover {
+    background-color: #d3d3d3; /* Equivalent to blue.500 in Chakra UI */
+  }
+}
+
+.img {
+  width: 20px; /* Set a fixed width for the icons */
+  height: 20px; /* Set a fixed height for the icons */
+}
