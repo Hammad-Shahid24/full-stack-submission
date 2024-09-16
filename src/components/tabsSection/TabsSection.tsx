@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  Tabs,
-  TabList,
-  Tab,
-  Button,
-  TabIndicator,
-  Box,
-} from "@chakra-ui/react";
+import { Tabs, TabList, Tab, TabIndicator } from "@chakra-ui/react";
 import styles from "./TabsSection.module.scss";
-import { CiCirclePlus } from "react-icons/ci";
 import PlusCircleIcon from "../../../public/images/plus-circle.svg";
 import Image from "next/image";
 

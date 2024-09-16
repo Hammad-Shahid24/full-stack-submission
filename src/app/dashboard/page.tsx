@@ -47,9 +47,7 @@ const Dashboard: React.FC = () => {
                     : "Website technical maintenance project"
                 }
                 status="In Progress"
-                progress={75}
-                nextMilestone="Complete UI Design"
-                onFollowUpClick={handleFollowUpClick}
+                nextMilestone={index % 2 === 0 ? "In 3 days" : "Dec 5th"}
               />
             ))}
           </div>

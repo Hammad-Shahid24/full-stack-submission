@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Heading,
-  Text,
-  Progress,
-  useSteps,
-} from "@chakra-ui/react";
+import { Box, Heading, Text, useSteps } from "@chakra-ui/react";
 import { useState } from "react";
 import { IoEllipsisVertical } from "react-icons/io5";
 import styles from "./Card.module.scss";
@@ -17,17 +10,13 @@ import Image from "next/image";
 interface ProjectCardProps {
   title: string;
   status: string;
-  progress: number;
   nextMilestone: string;
-  onFollowUpClick: () => void;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   status,
-  progress,
   nextMilestone,
-  onFollowUpClick,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -40,20 +29,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   };
 
   const steps = [
-    { title: "First", description: "Contact Info" },
-    { title: "Second", description: "Date & Time" },
-    { title: "Third", description: "Select Rooms" },
-    { title: "Fourth", description: "Enter Email" },
+    { title: "First" },
+    { title: "Second" },
+    { title: "Third" },
+    { title: "Fourth" },
   ];
-
-  const { activeStep, setActiveStep } = useSteps({
-    index: 2,
-    count: steps.length,
-  });
-
-  const activeStepText = steps[activeStep].description;
-  const max = steps.length - 1;
-  const progressPercent = (activeStep / max) * 100;
 
   return (
     <Box
@@ -79,7 +59,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {"Follow up with manager"}
         </Heading>
 
-        <button className={styles.arrowButton} onClick={onFollowUpClick}>
+        <button className={styles.arrowButton}>
           <Image src={ArrowIcon} alt="ArrowIcon" />
         </button>
       </div>

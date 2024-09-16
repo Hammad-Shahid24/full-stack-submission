@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import styles from "./WelcomeSection.module.scss";
 import CompletedIcon from "../../../public/images/green-folder.svg";
 import OngoingIcon from "../../../public/images/blue-folder.svg";
