@@ -9,10 +9,6 @@ import Footer from "@/components/footer/Footer";
 import SideNav from "@/components/sideNav/SideNav";
 
 const Dashboard: React.FC = () => {
-  const handleFollowUpClick = () => {
-    console.log("Follow-up action triggered");
-  };
-
   const userData = {
     name: "Haseena",
     summary: "You have accomplished a lot today. Let us handle the rest.",

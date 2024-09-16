@@ -1,4 +1,4 @@
-import { Box, Heading, Text, useSteps } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { IoEllipsisVertical } from "react-icons/io5";
 import styles from "./Card.module.scss";
@@ -27,13 +27,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-
-  const steps = [
-    { title: "First" },
-    { title: "Second" },
-    { title: "Third" },
-    { title: "Fourth" },
-  ];
 
   return (
     <Box
